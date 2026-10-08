@@ -1,0 +1,5 @@
+@font-face{font-family:'Zine Noto Sans TC';src:url('./noto-sans-tc.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Zine Noto Serif TC';src:url('./noto-serif-tc.woff2') format('woff2');font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Zine WenKai TC';src:url('./wenkai-300.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Zine WenKai TC';src:url('./wenkai-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Zine WenKai TC';src:url('./wenkai-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
