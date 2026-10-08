@@ -1,8 +1,10 @@
 # 摺景 Foldroom
 
-Traditional Chinese, browser-only A4 photo-zine editor. Serve `dist` as a static directory; no build or backend is needed. Photos remain in memory and are never uploaded. Refreshing discards the editable document; a PDF is a print copy, not a saved project.
+Traditional Chinese A4 photo-zine editor. Serve `dist/client` as a static directory for local editing; the published site adds a small Worker and D1 counter for anonymous usage statistics. Photos remain in browser memory and are never uploaded. Refreshing discards the editable document; a PDF is a print copy, not a saved project.
 
-`dist/index.html` introduces the tool and links to `dist/editor.html`, where the canvas editor lives. The intro uses an actual editor screenshot in `dist/assets/editor-preview.webp`.
+`dist/client/index.html` introduces the tool and links to `dist/client/editor.html`, where the canvas editor lives. The intro uses an actual editor screenshot in `dist/client/assets/editor-preview.webp`.
+
+Opening the editor calls `/api/usage`. A first-party, one-year cookie prevents repeat counts in the same browser; D1 stores only an aggregate count. The homepage displays the count. This estimates browsers that opened the editor, not distinct people, and can be affected by cleared cookies or bots. The counter does not receive photos or text.
 
 ## Layout contract
 
@@ -16,8 +18,8 @@ Photo dragging snaps its center to sheet fold lines and page centers, and aligns
 
 ## Dependencies
 
-Vendored Konva 9.3.18 (MIT) for canvas editing and jsPDF 3.0.3 (MIT) for one-page 300 dpi raster PDF output. Chinese text supports system fonts plus bundled Noto Sans TC, Noto Serif TC, and LXGW WenKai TC, with each family's supported weights. Bundled fonts load on demand from this website; PDF export waits for them. Font licenses and sources are in `dist/fonts`. No third-party font requests, analytics, cloud image processing, or storage APIs.
+Vendored Konva 9.3.18 (MIT) for canvas editing and jsPDF 3.0.3 (MIT) for one-page 300 dpi raster PDF output. Chinese text supports system fonts plus bundled Noto Sans TC, Noto Serif TC, and LXGW WenKai TC, with each family's supported weights. Bundled fonts load on demand from this website; PDF export waits for them. Font licenses and sources are in `dist/client/fonts`. No third-party font requests, cloud image processing, or photo storage APIs.
 
 ## Checks
 
-Run `node --check dist/app.js`. Browser QA and generated diagnostic files are in ignored `qa/`. Real paper folding still requires a physical trial print.
+Run `node --check dist/client/app.js` and `node qa/usage.test.mjs`. Browser QA and generated diagnostic files are in ignored `qa/`. Real paper folding still requires a physical trial print.
